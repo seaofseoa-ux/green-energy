@@ -1,0 +1,315 @@
+/* =====================================================
+   COLOUR SCHEME (analogous — greens through gold/clay)
+   -----------------------------------------------------
+   --forest-dark   : #1B4332  (headers, nav, primary text on light bg)
+   --forest-mid    : #2D6A4F  (secondary panels, footer)
+   --sun-gold      : #E9B44C  (accent — active state, highlights)
+   --clay-rust     : #A65E2E  (secondary accent — links, borders)
+   --bg-wheat      : #F7F5EC  (page background)
+   --card-sage     : #E4ECE0  (card / content background)
+   --text-charcoal : #22281F  (body copy)
+   ===================================================== */
+
+:root {
+  --forest-dark: #1B4332;
+  --forest-mid: #2D6A4F;
+  --sun-gold: #E9B44C;
+  --clay-rust: #A65E2E;
+  --bg-wheat: #F7F5EC;
+  --card-sage: #E4ECE0;
+  --text-charcoal: #22281F;
+
+  --font-heading: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body: 'Work Sans', Arial, Helvetica, sans-serif;
+
+  --content-max: 60rem;
+  --gutter: 2rem;
+}
+
+/* -------- Reset -------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 12px; /* 0.75rem base text on mobile per spec (1rem = 12px) */
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--text-charcoal);
+  background-color: var(--bg-wheat);
+  line-height: 1.5; /* within 1.4–1.6 range */
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  color: var(--forest-dark);
+  line-height: 1.2;
+  margin: 0 0 0.75rem 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* -------- Layout helper -------- */
+.masthead-inner,
+.main-content,
+.nav-bar,
+.site-footer {
+  width: 100%;
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+/* =====================================================
+   NAV BAR
+   ===================================================== */
+.site-header {
+  background-color: var(--forest-dark);
+}
+
+.nav-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.nav-logo {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: var(--bg-wheat);
+  margin-bottom: 0.75rem;
+}
+
+.nav-logo span {
+  color: var(--sun-gold);
+}
+
+.nav-list li a {
+  display: block;
+  padding: 0.4rem 0;
+  color: var(--card-sage);
+  font-weight: 500;
+  border-bottom: 1px solid rgba(247, 245, 236, 0.15);
+}
+
+.nav-list li:last-child a {
+  border-bottom: none;
+}
+
+.nav-list li a:hover,
+.nav-list li a:focus {
+  color: var(--sun-gold);
+}
+
+/* =====================================================
+   MASTHEAD
+   ===================================================== */
+.masthead {
+  background-image: linear-gradient(180deg, rgba(12, 27, 20, 0.55), rgba(12, 27, 20, 0.75)), url('../img/masthead-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.tagline {
+  color: var(--bg-wheat);
+  font-size: 1.8rem;
+  max-width: 26rem;
+}
+
+.masthead-sub {
+  color: var(--card-sage);
+  max-width: 28rem;
+  font-size: 1rem;
+}
+
+/* =====================================================
+   MAIN CONTENT
+   ===================================================== */
+.main-content {
+  padding-top: 2.5rem;
+  padding-bottom: 3rem;
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.button-group button {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.65rem 1.1rem;
+  border: 2px solid var(--forest-dark);
+  background-color: transparent;
+  color: var(--forest-dark);
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.button-group button:hover {
+  transform: translateY(-1px);
+}
+
+.button-group button#active-button {
+  background-color: var(--sun-gold);
+  border-color: var(--sun-gold);
+  color: var(--forest-dark);
+}
+
+.content-container {
+  background-color: var(--card-sage);
+  border-radius: 0.5rem;
+  padding: 1.75rem;
+}
+
+.content-container::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.content-container h2 {
+  font-size: 1.4rem;
+}
+
+.content-container img {
+  margin-bottom: 1rem;
+  border-radius: 0.35rem;
+}
+
+.content-container p {
+  margin: 0;
+}
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+.site-footer {
+  background-color: var(--forest-mid);
+  color: var(--card-sage);
+  text-align: center;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.footer-tagline {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  margin-bottom: 1.25rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background-color: var(--forest-dark);
+  color: var(--bg-wheat);
+  font-size: 1.1rem;
+  transition: background-color 0.2s ease;
+}
+
+.social-links a:hover,
+.social-links a:focus {
+  background-color: var(--sun-gold);
+  color: var(--forest-dark);
+}
+
+.copyright {
+  font-size: 0.85rem;
+  color: rgba(247, 245, 236, 0.75);
+  margin: 0;
+}
+
+/* =====================================================
+   RESPONSIVE — BREAKPOINT 30rem
+   ===================================================== */
+@media (min-width: 30rem) {
+  html {
+    font-size: 16px; /* 1rem base on tablet/desktop */
+  }
+
+  .nav-bar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+
+  .nav-list {
+    display: flex;
+    gap: 1.75rem;
+  }
+
+  .nav-list li a {
+    border-bottom: none;
+    padding: 0.25rem 0;
+  }
+
+  .tagline {
+    font-size: 2.6rem;
+  }
+
+  .masthead {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
+  /* Main content image floated at 25% width, text wraps around it */
+  .content-container img {
+    float: left;
+    width: 25%;
+    margin-right: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .content-container h2 {
+    font-size: 1.75rem;
+  }
+}
+
+@media (min-width: 60rem) {
+  .tagline {
+    font-size: 3.2rem;
+  }
+}
